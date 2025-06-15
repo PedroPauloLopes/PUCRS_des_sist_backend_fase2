@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "e90e1b1d-e889-43d0-a1d2-9f83bec7023c",
+		"name": "Desenvolvimento_de_Sistemas_backend_2025-31",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36516465"
+	},
+	"item": [
+		{
+			"name": "ServicoGerenciamentoPlanos",
+			"item": [
+				{
+					"name": "Lista Clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/clientes",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"clientes"
+							]
+						},
+						"description": "### GET/gerenciaplanos/clientes\n\nO endpoint recupera uma lista de clientes. A resposta retorna um código de status 200 e um tipo de conteúdo de application/json.\n\n### Request\n\nNenhum body é necessário para esse endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "Lista planos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/planos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"planos"
+							]
+						},
+						"description": "### GET/gerenciaplanos/planos\n\nO endpoint recupera uma lista de planos. A resposta retorna um código de status 200 e um tipo de conteúdo de application/json.\n\n### Request\n\nNenhum body é necessário para esse endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "Novo Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Maria Silva\",\r\n  \"email\": \"MariaSilva1@email.com\",\r\n  \"telefone\": \"21999999999\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/gerenciaplanos/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Novo plano",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"2\",\r\n  \"nome\": \"Plano Clássico\",\r\n  \"velocidade\": 100,\r\n  \"preco\": 109.90\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/planos",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"planos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nova Assinatura ATIVO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 1,\r\n  \"planoId\": 1,\r\n  \"dataInicio\": \"2025-06-01\",\r\n  \"dataUltimoPagamento\": \"2025-05-30\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/assinaturas",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"assinaturas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nova Assinatura CANCELADO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 1,\r\n  \"planoId\": 1,\r\n  \"dataInicio\": \"2025-06-01\",\r\n  \"dataUltimoPagamento\": \"2025-03-30\" \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/assinaturas",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"assinaturas"
+							]
+						},
+						"description": "### POST /gerenciaplanos/assinaturas\n\nEsse endpoint faz uma solicitação HTTP POST para localhost:3000/gerenciaplanos/assinaturas a fim de adicionar uma assinatura.\n\n#### Request Body\n\n- `codCli` (número): O código do cliente.\n    \n- `codPlano` (número): O código do plano.\n    \n- `custoFinal`(número): O valor que o cliente pagará nesta assinatura durante o período de fidelidade.\n    \n- `descricao` (texto): Descrição preenchida pelo atendente no momento que a venda foi concluída."
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Custo Mensal Plano",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"preco\": 99.99,\r\n    \"velocidade\": \"300Mbps\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/planos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"planos",
+								"1"
+							]
+						},
+						"description": "### PATCH /gerenciaplanos/planos/:idPlano\n\nO endpoint é usado para atualizar os detalhes de um plano específico. Neste exemplo, o \"1\" se ferere ao ID do plano que se deseja atualizar.\n\n### Request Body\n\nA solicitação deve incluir os seguintes parâmetros no corpo bruto da solicitação:\n\n- `custoMensal`﻿ (número, obrigatório): O custo atualizado do plano."
+					},
+					"response": []
+				},
+				{
+					"name": "Assinaturas Ativos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/assinaturas/ATIVOS",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"assinaturas",
+								"ATIVOS"
+							]
+						},
+						"description": "### GET /gerenciaplanos/assinaturas/{tipo}\n\nO endpoint recupera uma lista de assinaturas ativas.\n\n### Request\n\nNenhum body é necessário para esse endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "Assinaturas Cancelados",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/assinaturas/CANCELADOS",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"assinaturas",
+								"CANCELADOS"
+							]
+						},
+						"description": "### GET /gerenciaplanos/assinaturas/{tipo}\n\nO endpoint recupera uma lista de assinaturas canceladas.\n\n### Request\n\nNenhum body é necessário para esse endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "Assinaturas Todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/assinaturas/TODOS",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"assinaturas",
+								"TODOS"
+							]
+						},
+						"description": "### GET /gerenciaplanos/assinaturas/{tipo}\n\nO endpoint recupera uma lista com todas as assinaturas.\n\n### Request\n\nNenhum body é necessário para esse endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "Assinaturas por Cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/clientes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"clientes",
+								"1"
+							]
+						},
+						"description": "### GET /gerenciaplanos/asscli/{codcli}\n\nO endpoint recupera as assinaturas ativas de um cliente."
+					},
+					"response": []
+				},
+				{
+					"name": "Assinaturas por Plano",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gerenciaplanos/planos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gerenciaplanos",
+								"planos",
+								"1"
+							]
+						},
+						"description": "### GET /gerenciaplanos/assinaturaplano/{codplano}\n\nO endpoint recupera as assinaturas ativas de um plano."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ServicoPagamentos",
+			"item": [
+				{
+					"name": "http://localhost:3001/registrarpagamento",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dia\":15,\r\n    \"mes\":6,\r\n    \"ano\":2025,\r\n    \"codigoAssinatura\":\"ABC123\",\r\n    \"valorPago\":100.50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/registrarpagamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"registrarpagamento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
